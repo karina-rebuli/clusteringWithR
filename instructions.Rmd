@@ -1,0 +1,62 @@
+---
+title: "Clustering with R - Instructions"
+output:
+  html_document:
+    theme: cerulean
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Dataset settings
+
+#### Groupping patterns
+
+  * Random is without groupping pattern
+  * Spherical has the same groupping pattern in both directions
+  * Non-spherical has groupping pattern in just one dimension
+  * Irregular has distinct groupping pattern in each dimension
+
+#### Number of observations: datasets can be generated with 10 up to 1000 observations
+
+#### Outliers frequency
+  
+  * None will not input any adicional outlier. Note they can occur though
+  * Small will make about 10% of data become outliers
+  * Median will make about 20% of data become outliers
+  * High will make about 40% of data become outliers
+
+### Clustering algorithm settings
+
+#### Number of clusters: choose automatically or manually from 2 to 30 clusters
+
+  * Option 'Discover number of clusters' to allow algorithm to choose the number of clusters that maiximizes sihlouette index
+  * Or set it manually
+
+#### Algorithm
+
+  * Hierarchical clustering runs with Complete method
+  * K-means use hartigan-Wong algorithm, with 5 initial centroids trials and maximum of 10 iterations
+  * PAM uses Kaufman and Rousseeuw(1990) algorithm
+  * K-means++ uses 5 initial centroids trials and maximum of 10 iterations
+  * SOM uses a grid with number of grid equals about 60% of number of data points
+  , bubble neighborhood from varying from 2/3 of all unit-to-unit distances until zero
+  , learning rate varying from 0.05 to 0.01 and 1000 iterations. Nodes are, then, clustered with default 
+  k-means algorithm using the number of clusters given by maximum average sihlouette
+
+### Exploratory analysis
+
+  * Scatter plots show data patters
+  * Dissimilarities matrices shows patterns in dissimilarities and are helpful as indication of clustering on data"
+  * Histogram of dissimilarities are also helpful as indication of clustering on data
+  * Hopkins statistic indicates tendency of clustering on data (it tends to zero when data are clustered
+
+### Clustering results
+
+  * Scatter plots show data groupping, variables distribution and produced clusters
+  * Silhouette plots show silhouette index for all data (positive values are data well clustered and negative, the opposite
+  * If using hierarchical clustering, dendrogram is shown
+  * If using SOM, U-Matrix is shown
+
+
